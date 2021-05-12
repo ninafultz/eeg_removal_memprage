@@ -34,6 +34,13 @@ module load freesurfer
 #save out thresholded file as: $DIR/$SUBJECT/eeg_removal/MEMPR_iso1mm_bone_thresholded.nii.gz.  
         #- threshold bone! go to tools>threshold>the gui 
         #low: 0.06, high:70, press run, then look at bone image
+        
+        
+        #racsleep04_b: low: 0.06, high:70
+        #racsleep05: low: 0.15, high: 70
+        #racsleep06: low: 0.25, high: 70
+        #racsleep08: low: 0.08, high: 70
+        
 #save out thresholded file as: $DIR/$SUBJECT/eeg_removal/MEMPR_iso1mm_other_thresholded.nii.gz - erode them: tools>volume filter> erode
 #adding all of WM, GM, CSF, bone, other together
 
