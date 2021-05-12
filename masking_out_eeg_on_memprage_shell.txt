@@ -1,0 +1,26 @@
+#pet_anatomical_mask
+
+#purpose: to mask out eeg electrodes on memprages from PET scans, will allow us to have better looking attenuation maps for analysis	
+#usage:
+#1) run biasfieldcorrect script
+#2) check biasfieldcorrect script
+#3) use mask from biasfieldcorrect script to determine threshold values
+#4) run fslmaths in order to make final memprage without electrodes
+
+
+#1) path on martinos center cluster: /autofs/cluster/ldl/nina/scripts/pet_scripts/
+
+./biasfieldcorrect --with-segmentation --overwrite /autofs/cluster/ldl/nina/pet_eeg_fmri/racsleep08/anat/MEMPR_iso1mm.nii.gz /autofs/cluster/ldl/nina/pet_eeg_fmri/racsleep08/anat/MEMPR_iso1mm_eegremoved.nii.gz
+
+
+#2) path on martinos center cluster: /autofs/cluster/ldl/nina/scripts/pet_scripts/
+
+./eeg_removal.sh -n racsleep08 -d /autofs/cluster/ldl/nina/pet_eeg_fmri -b pet_eeg_fmri
+
+#3) path on bu cluster: /ad/eng/research/eng_research_lewislab/users/nfultz/scripts/pet_analysis/pet_analysis
+ 
+open all eeg_removal, do erosion on other mask
+#	- tools > volume filters > erode 'other' mask
+# 	- save out and check
+
+./masking_out_eeg.sh -n racsleep08
