@@ -5,3 +5,5 @@ biasfieldcorrection script from daniel gomez 2021
 
 look at memprage shell for full outline
 
+#Usage:
+will remove eeg electrode artifact from an memprage/most anatomical images. 
